@@ -16,9 +16,7 @@ public class SimpleArrayList<T> implements List<T> {
 
     @Override
     public void add(T value) {
-        if (size == container.length) {
-            container = Arrays.copyOf(container, size * 2);
-        }
+        increaseArrayLength();
         container[size++] = value;
         modCount++;
     }
@@ -72,5 +70,13 @@ public class SimpleArrayList<T> implements List<T> {
                 return container[point++];
             }
         };
+    }
+
+    private void increaseArrayLength() {
+        if (container.length == 0) {
+            container = Arrays.copyOf(container, 10);
+        } else if (container.length == size) {
+            container = Arrays.copyOf(container, size * 2);
+        }
     }
 }
