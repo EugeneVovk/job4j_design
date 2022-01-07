@@ -17,4 +17,11 @@ public class SimpleStack<T> {
     public void push(T value) {
         linked.addFirst(value);
     }
+
+    /**
+     * Метод isEmpty() определяет, является ли стек пустым или нет
+     */
+    public boolean isEmpty() {
+        return !linked.iterator().hasNext();
+    }
 }
