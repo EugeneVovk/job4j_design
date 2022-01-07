@@ -18,7 +18,7 @@ public class SimpleQueue<T> {
      * Метод poll() - возвращает первое значение и удаляет его из коллекции.
      */
     public T poll() {
-        if (in.isEmpty()) {
+        if (in.isEmpty() && out.isEmpty()) {
             throw new NoSuchElementException();
         }
         if (out.isEmpty()) {
