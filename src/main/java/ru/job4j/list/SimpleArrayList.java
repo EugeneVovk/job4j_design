@@ -73,10 +73,8 @@ public class SimpleArrayList<T> implements List<T> {
     }
 
     private void increaseArrayLength() {
-        if (container.length == 0) {
-            container = Arrays.copyOf(container, 10);
-        } else if (container.length == size) {
-            container = Arrays.copyOf(container, size * 2);
+        if (size == container.length) {
+            container = Arrays.copyOf(container, (container.length + 1) * 2);
         }
     }
 }
