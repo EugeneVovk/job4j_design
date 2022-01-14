@@ -1,0 +1,5 @@
+dialect=org.hibernate.dialect.PostgreSQLDialect
+url=jdbc:postgresql://127.0.0.1:5432/trackstudio
+driver_class=org.postgresql.Driver
+username=postgres
+password=password
