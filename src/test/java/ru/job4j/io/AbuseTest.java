@@ -22,6 +22,9 @@ import static org.junit.Assert.*;
  * folder.newFile() - мы создаем файл и заполняем его содержимое.
  * Abuse.drop() - мы выполняем действие программы, а далее читаем полученный.
  * assertThat() - проверяем результаты.
+ *
+ * Важно, класс TemporaryFolder нужно использовать,
+ * когда программа записывает результат в файл.
  */
 public class AbuseTest {
     @Rule
