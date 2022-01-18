@@ -5,8 +5,7 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * FileVisitor — это специальный интерфейс,
@@ -15,20 +14,31 @@ import java.util.Set;
  * Доработать код, чтоб он находил дубликаты.
  * Использовать модель FileProperty.
  * Подумайте какие структуры данных лучше подойдут для решения этого задания
+ * <p>
+ * При использовании коллекции Set код работает неправильно.
+ * Это происходит, потому, что при первом вхождении файла
+ * он помещается в коллекцию, не печатаясь.
+ * Попробуйте использовать HashMap.
  */
 public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
 
-    private final Set<FileProperty> set = new HashSet<>();
+    private final Map<FileProperty, List<Path>> map = new HashMap<>();
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
         FileProperty filePr = new FileProperty(
                 file.toFile().length(), file.toFile().getName());
-        if (!set.contains(filePr)) {
-            set.add(filePr);
+        if (map.containsKey(filePr)) {
+            map.get(filePr).add(file);
         } else {
-            System.out.println(file.toAbsolutePath());
+            map.put(filePr, new ArrayList<>(List.of(file)));
         }
         return super.visitFile(file, attrs);
+    }
+
+    public void info() {
+        for (Map.Entry<FileProperty, List<Path>> entry : map.entrySet()) {
+            System.out.println(entry.getValue());
+        }
     }
 }
