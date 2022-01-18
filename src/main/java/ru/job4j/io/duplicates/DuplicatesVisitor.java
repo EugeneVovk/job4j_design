@@ -19,6 +19,9 @@ import java.util.*;
  * Это происходит, потому, что при первом вхождении файла
  * он помещается в коллекцию, не печатаясь.
  * Попробуйте использовать HashMap.
+ * <p>
+ * Проверьте правильность вывода результата на печать.
+ * Если у файла нет дубликатов, не надо выводить его в печать.
  */
 public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
 
@@ -38,7 +41,9 @@ public class DuplicatesVisitor extends SimpleFileVisitor<Path> {
 
     public void info() {
         for (Map.Entry<FileProperty, List<Path>> entry : map.entrySet()) {
-            System.out.println(entry.getValue());
+            if (entry.getValue().size() > 1) {
+                System.out.println(entry.getValue());
+            }
         }
     }
 }
