@@ -45,12 +45,11 @@ public class ConsoleChat {
         List<String> botLog = new ArrayList<>();
         try (BufferedReader in = new BufferedReader(new InputStreamReader(System.in))) {
             String say = "";
-            System.out.println("""
-                    Тебе доступны лишь три команды:
-                    \t- закончить
-                    \t- стоп
-                    \t- продолжить
-                    Хочешь цитату?""");
+            System.out.println("Тебе доступны лишь три команды:\n"
+                    + "\t- закончить\n"
+                    + "\t- стоп\n"
+                    + "\t- продолжить\n"
+                    + "Хочешь цитату?");
             while (!say.equals(OUT)) {
                 say = in.readLine();
                 if (say.equals(STOP)) {
