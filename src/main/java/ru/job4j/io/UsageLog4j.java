@@ -26,6 +26,10 @@ import org.slf4j.LoggerFactory;
  * вторая - вторым и так далее.
  * Если меток или параметров будет разное количество,
  * логгер проигнорирует метку или параметр.
+ * <p>
+ * Запомните правило, если в проекте используется логгер,
+ * то для вывода ошибок или отладочной информации нужно использовать только логгер.
+ * Придерживаетесь единого стиля во всем проекте.
  */
 public class UsageLog4j {
 
@@ -43,8 +47,12 @@ public class UsageLog4j {
         boolean isChosen = true;
         float height = 186.0F;
         char gender = 'M';
-
         LOG.debug("User info name: {}, age: {}, isChosen: {}, height: {}, gender: {}",
                 name, age, isChosen, height, gender);
+        try {
+            throw new Exception("Not support code");
+        } catch (Exception e) {
+            LOG.error("Exception in log example", e);
+        }
     }
 }
