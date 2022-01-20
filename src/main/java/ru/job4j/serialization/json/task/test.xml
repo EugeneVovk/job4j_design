@@ -1,0 +1,9 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<shelter name="Fluffy Cats" hasCat="true">
+    <volunteer name="Ann"/>
+    <amount>20</amount>
+    <id>
+        <id>Smokey</id>
+        <id>3</id>
+    </id>
+</shelter>
