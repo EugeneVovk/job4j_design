@@ -11,7 +11,7 @@ import com.google.gson.GsonBuilder;
  * для многих из которых существуют готовые библиотеки для создания
  * и обработки данных в формате JSON.
  */
-public class Main {
+public class MainJson {
     public static void main(String[] args) {
         final Person person = new Person(
                 false, 30,
