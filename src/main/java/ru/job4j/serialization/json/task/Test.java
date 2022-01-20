@@ -13,7 +13,6 @@ import com.google.gson.GsonBuilder;
  * 4) Оставьте ссылку на коммит.
  */
 public class Test {
-    //Kitty, Simba, Tom, Smokey
 
     public static void main(String[] args) {
         final Shelter shelter = new Shelter("Meow Foundation", true,
