@@ -47,8 +47,13 @@ public class UsageLog4j {
         boolean isChosen = true;
         float height = 186.0F;
         char gender = 'M';
-        LOG.debug("User info name: {}, age: {}, isChosen: {}, height: {}, gender: {}",
-                name, age, isChosen, height, gender);
+        byte team = 1;
+        short someNum = -32000;
+        long someBigNum = 9223372036854775807L;
+        double tomMemory = 1.07e+15;
+        LOG.debug("User info name: {}, age: {}, isChosen: {}, height: {}, gender: {},"
+                        + " team: {}, someNum: {}, someBigNum: {}, tomMemory: {}",
+                name, age, isChosen, height, gender, team, someNum, someBigNum, tomMemory);
         try {
             throw new Exception("Not support code");
         } catch (Exception e) {
