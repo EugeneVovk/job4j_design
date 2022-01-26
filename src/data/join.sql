@@ -46,19 +46,10 @@ where e.name is null;
 --(порядок вывода колонок в эти запросах также должен быть идентичный). 
 select e.name emploers, d.name departments 
 from emploers e 
-left join departments d 
+right join departments d
 on departments_id=d.id;
 
-select d.name departments, e.name emploers 
-from departments d right join emploers e 
-on departments_id=d.id;
---
-select e.name emploers, d.name departments 
-from emploers e 
-right join departments d 
-on departments_id=d.id;
-
-select d.name departments, e.name emploers 
+select e.name emploers, d.name departments
 from departments d 
 left join emploers e 
 on departments_id=d.id;
